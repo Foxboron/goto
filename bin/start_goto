@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# make zsh emulate bash if necessary
+if [[ -n "$ZSH_VERSION" ]]; then
+    autoload bashcompinit
+    bashcompinit
+fi
+
+
 # autocompletion
 _goto_completions() 
 {
@@ -9,7 +16,7 @@ _goto_completions()
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     opts="--for --future --implementation"
 
-    if [[ ${prev} == "goto" ]] || [[ ${prev} == "show" ]] || [[ ${prev} == "rm" ]]; then 
+    if [[ ${prev} == "goto" ]] || [[ ${prev} == "show" ]] || [[ ${prev} == "copy" ]] || [[ ${prev} == "rm" ]] || [[ ${prev} == "-f" ]] ; then 
         COMPREPLY=( $(compgen -W "$(goto list)" ${cur}) )
         return 0
     fi
@@ -19,7 +26,7 @@ _goto_completions()
         return 0
     fi
 }
-complete -F _goto_completions goto
+complete -o default -F _goto_completions goto
 
 
 _project_completions() 
