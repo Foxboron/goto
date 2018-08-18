@@ -1,5 +1,11 @@
 @echo off
 
+rem the goto statement below is the builtin CMD statement, it must not be confused with
+rem the real goto. If you insist on using CMD as your main terminal,
+rem a problem is that goto is a reserved name. in CMD this projects goto will be
+rem shortened down to 'gt'
+rem in all other terminals (powershell, iTerm, bash, sh, etc) - goto will be used.
+
 goto check_Permissions
 
 
