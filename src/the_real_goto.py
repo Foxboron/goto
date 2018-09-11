@@ -56,4 +56,9 @@ if __name__ == "__main__":
             open_terminal(magic[sys.argv[3]])
             exit(0)
         # default
-        open_link(magic[sys.argv[2]])
+        try:
+            open_link(magic[sys.argv[2]])
+        except KeyError:
+            print('Magic word %s does not yet exists it seems. \n\
+Perhaps you did not add it or it might be in a different project.')
+
