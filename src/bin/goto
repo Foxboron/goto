@@ -2,7 +2,7 @@
 
 PROJECT=`cat ${HOME}/.goto/active-project`
 GOTOPATH="${HOME}/.goto/projects/${PROJECT}.json"
-GOTO="${HOME}/.goto/magic/the_real_goto.py"
+GOTO="the_real_goto.py"
 
 if [ "$1" = "cd" ]
 	then
